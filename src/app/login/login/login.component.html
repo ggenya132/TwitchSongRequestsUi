@@ -1,0 +1,29 @@
+<ng-wizard (stepChanged)="stepChanged($event)">
+  <ng-wizard-step
+    [title]="'Login with Twitch'"
+    [description]="'Allow us to listen to your chat'"
+  >
+    <div *ngIf="!isLoading; else loading">
+      <a *ngIf="!accessToken; else continue" [href]="redirectPathTwo"
+        >Login to Twitch</a
+      >
+      <ng-template #continue>Move on to Spotify login.</ng-template>
+    </div>
+
+    <ng-template #loading>Loading...</ng-template>
+  </ng-wizard-step>
+
+  <ng-wizard-step
+    [title]="'Login with Spotify'"
+    [description]="'Allow us to send song to your queu'"
+  >
+    <span>Step 2 content</span>
+  </ng-wizard-step>
+
+  <ng-wizard-step
+    [title]="'Enjoy'"
+    [description]="'Monitor your queu and what songs are currently playing'"
+  >
+    <span>Step 4 content</span>
+  </ng-wizard-step>
+</ng-wizard>
