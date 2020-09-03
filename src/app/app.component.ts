@@ -8,4 +8,8 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class AppComponent {
   title = 'TwitchSongRequestsUi';
+
+  ngOnDestroy() {
+    sessionStorage.clear();
+  }
 }
